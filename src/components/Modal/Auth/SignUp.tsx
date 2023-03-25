@@ -47,7 +47,7 @@ const SignUp: React.FC = () => {
       <Input
         name="email"
         placeholder="email"
-        type="text"
+        type="email"
         mb={2}
         onChange={onChange}
       />
@@ -65,10 +65,8 @@ const SignUp: React.FC = () => {
         onChange={onChange}
       />
       <Text textAlign="center" mt={2} fontSize="10pt" color="red">
-        <Text textAlign="center" mt={2} fontSize="10pt" color="red">
-          {formError ||
-            FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
-        </Text>
+        {formError ||
+          FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
       </Text>
       <Button
         width="100%"
