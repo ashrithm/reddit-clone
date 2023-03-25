@@ -1,9 +1,10 @@
 import { authModalState } from "@/atoms/authModalAtom";
-import { Input, Button, Flex, Text } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { useSetRecoilState } from "recoil";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "@/firebase/clientApp";
+import { FIREBASE_ERRORS } from "@/firebase/errors";
+import { Button, Flex, Input, Text } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSetRecoilState } from "recoil";
 
 const SignUp: React.FC = () => {
   const setAuthModalState = useSetRecoilState(authModalState);
@@ -64,7 +65,10 @@ const SignUp: React.FC = () => {
         onChange={onChange}
       />
       <Text textAlign="center" mt={2} fontSize="10pt" color="red">
-        {formError}
+        <Text textAlign="center" mt={2} fontSize="10pt" color="red">
+          {formError ||
+            FIREBASE_ERRORS[authError?.message as keyof typeof FIREBASE_ERRORS]}
+        </Text>
       </Text>
       <Button
         width="100%"
@@ -85,7 +89,7 @@ const SignUp: React.FC = () => {
           onClick={() => {
             setAuthModalState((prev) => ({
               ...prev,
-              view: "signup",
+              view: "login",
             }));
           }}
         >
