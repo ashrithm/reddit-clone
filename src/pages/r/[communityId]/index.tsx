@@ -23,11 +23,6 @@ const CommunityPage: React.FC<CommunityPageProps> = ({ communityData }) => {
       <PageContent>
         <>
           <div>LHS</div>
-          <div>LHS</div>
-          <div>LHS</div>
-          <div>LHS</div>
-          <div>LHS</div>
-          <div>LHS</div>
         </>
         <>
           <div>RHS</div>
