@@ -16,7 +16,7 @@ const OAuthButtons: React.FC<OAuthButtonsProps> = () => {
         onClick={() => SignInWithGoogle()}
       >
         <Image
-          src="images/googlelogo.png"
+          src="/images/googlelogo.png"
           alt="google logo"
           height="20px"
           mr={4}
